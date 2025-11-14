@@ -47,7 +47,7 @@ public abstract class Parcel {
 
     @Override
     public String toString() {
-        return "Описание посылки: " + getDescription() + "вес: " + getWeight() + "Адрес доставки: "
-                + getDeliveryAddress() + "День отправки" + getSendDay();
+        return "Описание посылки: " + getDescription() + ", вес: " + getWeight() + ", Адрес доставки: "
+                + getDeliveryAddress() + ", День отправки" + getSendDay();
     }
 }

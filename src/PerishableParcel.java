@@ -23,7 +23,7 @@ public class PerishableParcel extends Parcel{
 
     @Override
     public String toString() {
-        return super.toString() + "Срок годности: " + getTimeToLive();
+        return super.toString() + ", Срок годности: " + getTimeToLive();
     }
 
 }
