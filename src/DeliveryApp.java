@@ -6,7 +6,7 @@ public class DeliveryApp {
 
     private static final Scanner scanner = new Scanner(System.in);
     private static List<Parcel> allParcels = new ArrayList<>();
-
+    private static List<Trackable> tracableParcels = new ArrayList<>();
     public static void main(String[] args) {
         boolean running = true;
         while (running) {
@@ -23,6 +23,9 @@ public class DeliveryApp {
                 case 3:
                     calculateCosts();
                     break;
+                case 4:
+                    reportTracking();
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -37,6 +40,7 @@ public class DeliveryApp {
         System.out.println("1 — Добавить посылку");
         System.out.println("2 — Отправить все посылки");
         System.out.println("3 — Посчитать стоимость доставки");
+        System.out.println("4 — Отследить статус доставки");
         System.out.println("0 — Завершить");
     }
 
@@ -69,6 +73,7 @@ public class DeliveryApp {
             case 2:
                 FragileParcel fragileParcel = new FragileParcel(description, weight, deliveryAddress, sendDay);
                 allParcels.add(fragileParcel);
+                tracableParcels.add(fragileParcel);
                 break;
             case 3:
                 System.out.println("Введите срок годности посылки");
@@ -98,5 +103,14 @@ public class DeliveryApp {
     }
         System.out.println("Общая стоимость всех доставок "+ total);// Посчитать общую стоимость всех доставок и вывести на экран
     }
+    private static void reportTracking() {
+        Scanner scanner = new Scanner(System.in);
+        for (Trackable parcel : tracableParcels) {
+            FragileParcel fragileParcel = (FragileParcel) parcel;
+            System.out.println("Введите новый адрес для посылки " + fragileParcel.getDescription());
+            String newLocation = scanner.nextLine();
+            fragileParcel.reportStatus(newLocation);
+        }
 
+    }
 }
