@@ -9,6 +9,21 @@ public class ParcelBox<T extends Parcel> {
         this.maxWeight = maxWeight;
     }
 
+    public ArrayList<T> getBox() {
+        return box;
+    }
+
+    public int getCurrentWeight() {
+        return currentWeight;
+    }
+
+    public int getMaxWeight() {
+        return maxWeight;
+    }
+
+    public void setCurrentWeight(int currentWeight) {
+        this.currentWeight = currentWeight;
+    }
 
     public void addParcel(T parcel) {
         if (!hasFreeSpace(parcel.getWeight())) {
@@ -16,6 +31,8 @@ public class ParcelBox<T extends Parcel> {
             return;
         }
         box.add(parcel);
+        setCurrentWeight(getCurrentWeight() + parcel.getWeight());
+
     }
 
     public void getAllParcels() {

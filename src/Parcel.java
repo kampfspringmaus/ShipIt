@@ -8,8 +8,6 @@ public abstract class Parcel {
     protected static final int FragileDeliveryPrice = 4;
     protected static final int PerishableDeliveryPrice = 3;
 
-
-
     public Parcel (String description, int weight, String deliveryAddress,int sendDay){
         this.description = description;
         this.weight = weight;

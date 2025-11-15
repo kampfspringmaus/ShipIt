@@ -10,6 +10,7 @@ public class DeliveryApp {
     private static ParcelBox<StandardParcel> standardBox = new ParcelBox<>(10);
     private static ParcelBox<FragileParcel> fragileBox = new ParcelBox<>(10);
     private static ParcelBox<PerishableParcel> perishableBox = new ParcelBox<>(10);
+
     public static void main(String[] args) {
         boolean running = true;
         while (running) {
@@ -101,21 +102,22 @@ public class DeliveryApp {
     }
 
     private static void sendParcels() {
-            for (Parcel parcel : allParcels) {
-                parcel.packageItem();
-                parcel.deliver();
-            }
+        for (Parcel parcel : allParcels) {
+            parcel.packageItem();
+            parcel.deliver();
         }
-        // Пройти по allParcels, вызвать packageItem() и deliver()
+    }
+    // Пройти по allParcels, вызвать packageItem() и deliver()
 
 
     private static void calculateCosts() {
-    int total = 0;
-    for (Parcel parcel : allParcels) {
-        total += parcel.calculateDeliveryCost();
+        int total = 0;
+        for (Parcel parcel : allParcels) {
+            total += parcel.calculateDeliveryCost();
+        }
+        System.out.println("Общая стоимость всех доставок " + total);// Посчитать общую стоимость всех доставок и вывести на экран
     }
-        System.out.println("Общая стоимость всех доставок "+ total);// Посчитать общую стоимость всех доставок и вывести на экран
-    }
+
     private static void reportTracking() {
         Scanner scanner = new Scanner(System.in);
         for (Trackable parcel : tracableParcels) {
@@ -125,6 +127,7 @@ public class DeliveryApp {
             fragileParcel.reportStatus(newLocation);
         }
     }
+
     private static void showBoxContents() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Содержимое какое коробки вы хотите посмотреть?");

@@ -1,4 +1,4 @@
-public class PerishableParcel extends Parcel{
+public class PerishableParcel extends Parcel {
     private int timeToLive;
 
     public PerishableParcel(String description, int weight, String deliveryAddress, int sendDay, int timeToLive) {
@@ -10,8 +10,8 @@ public class PerishableParcel extends Parcel{
         return timeToLive;
     }
 
-    boolean isExpired(int currentDay) {
-        if (getSendDay()+timeToLive>=currentDay) {
+    public boolean isExpired(int currentDay) {
+        if (getSendDay() + timeToLive > currentDay) {
             return false;
         }
         return true;
@@ -25,5 +25,4 @@ public class PerishableParcel extends Parcel{
     public String toString() {
         return super.toString() + ", Срок годности: " + getTimeToLive();
     }
-
 }
