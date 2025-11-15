@@ -36,7 +36,7 @@ public abstract class Parcel {
 
     }
     void deliver() {
-        System.out.println("Посылка "+ getDescription() + " доставлена по адресу YYY");
+        System.out.println("Посылка "+ getDescription() + " доставлена по адресу "+getDeliveryAddress());
     };
     int calculateDeliveryCost() {
         return weight*getPrice();
@@ -46,6 +46,6 @@ public abstract class Parcel {
     @Override
     public String toString() {
         return "Описание посылки: " + getDescription() + ", вес: " + getWeight() + ", Адрес доставки: "
-                + getDeliveryAddress() + ", День отправки" + getSendDay();
+                + getDeliveryAddress() + ", День отправки: " + getSendDay();
     }
 }

@@ -15,7 +15,7 @@ public class DeliveryApp {
         boolean running = true;
         while (running) {
             showMenu();
-            int choice = Integer.parseInt(scanner.nextLine());
+            int choice = scanner.nextInt();
 
             switch (choice) {
                 case 1:
@@ -32,6 +32,7 @@ public class DeliveryApp {
                     break;
                 case 5:
                     showBoxContents();
+                    break;
                 case 0:
                     running = false;
                     break;
@@ -65,12 +66,11 @@ public class DeliveryApp {
 
         System.out.println("Введите описание посылки");
         String description = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Введите вес посылки");
         int weight = scanner.nextInt();
+        scanner.nextLine();
         System.out.println("Введите адрес доставки");
         String deliveryAddress = scanner.nextLine();
-        scanner.nextLine();
         System.out.println("Введите день отправки");
         int sendDay = scanner.nextInt();
         System.out.println("Введите тип посылки");
@@ -129,7 +129,7 @@ public class DeliveryApp {
     }
 
     private static void showBoxContents() {
-        Scanner scanner = new Scanner(System.in);
+        //Scanner scanner = new Scanner(System.in);
         System.out.println("Содержимое какое коробки вы хотите посмотреть?");
         printParcelTypes();
         int choise = scanner.nextInt();
